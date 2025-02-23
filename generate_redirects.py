@@ -7,6 +7,9 @@ docs_dir = Path('docs/')
 shutil.rmtree(docs_dir, ignore_errors=True)
 docs_dir.mkdir()
 
+# Prevent Jekyll from running on GitHub Pages
+(docs_dir / ".nojekyll").touch()
+
 # Load the redirects that need to be created
 with open('redirects.csv') as f:
     reader = csv.reader(f)
